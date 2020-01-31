@@ -50,12 +50,14 @@ final class FindLocationViewController: UIViewController {
         let tappedPointLocationCordiante = self.mapView.convert(point, toCoordinateFrom: mapView)
         debugPrint(tappedPointLocationCordiante)
         
+        /*
         print("""
         --- FIND LOCATION
         --- Map tapped at point
         """)
         dump(point)
         print("--- END OF TAP ---")
+        */
         
         //
         // output.locationSelected(at: CLLocationCoordinate2D)
