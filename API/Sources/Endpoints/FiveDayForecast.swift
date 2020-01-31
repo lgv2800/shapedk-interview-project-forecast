@@ -16,8 +16,10 @@ extension FiveDayForecast {
                 url: URL(string: "forecast")!,
                 method: .get,
                 parameters: [QueryParameters(
-                    [URLQueryItem(name: "lat", value: String(lat))],
-                    [URLQueryItem(name: "lon", value: String(long))]
+                    [
+                        URLQueryItem(name: "lat", value: String(lat)),
+                        URLQueryItem(name: "lon", value: String(long))
+                    ]
                 )],
                 resource: decodeResource(FiveDayForecast.self),
                 error: APIError.init,
