@@ -19,6 +19,8 @@ final class FindLocationViewController: UIViewController {
     private lazy var mapView: MKMapView = MKMapView(frame: .zero)
     
     var output: FindLocationViewControllerOutput!
+    //var tappedPoint: CGPoint?
+    //var tappedPointLocationCordiante: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,11 @@ final class FindLocationViewController: UIViewController {
     @objc
     private func findLocation(_ gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: mapView)
+        //self.tappedPoint = gesture.location(in: mapView)
+
+        let tappedPointLocationCordiante = self.mapView.convert(point, toCoordinateFrom: mapView)
+        debugPrint(tappedPointLocationCordiante)
+        
         print("""
         --- FIND LOCATION
         --- Map tapped at point
