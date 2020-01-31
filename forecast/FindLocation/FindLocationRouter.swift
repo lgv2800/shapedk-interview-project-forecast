@@ -9,6 +9,7 @@
 
 import MapKit
 import API
+import Entities
 
 final class FindLocationRouter {
     let api: ForecastClient
@@ -20,6 +21,8 @@ final class FindLocationRouter {
 
 extension FindLocationRouter: FindLocationInteractorAction {
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
-
+        api.perform(FiveDayForecast.getForecast(lat: coordinate.latitude, long: coordinate.longitude)) { (result) in
+            debugPrint(result)
+        }
     }
 }
