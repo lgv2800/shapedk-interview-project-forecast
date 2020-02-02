@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct FiveDayForecast: Codable {
+public struct FiveDayForecast: Decodable {
     
     // MARK: - Properties
     let city: City
     let list: [List]
     
     // MARK: - Structs
-    struct List: Codable {
+    struct List: Decodable {
         let date: Date
         let main: Main
         
@@ -25,7 +25,7 @@ public struct FiveDayForecast: Codable {
         }
     }
     
-    struct Main: Codable {
+    struct Main: Decodable {
         let temp: Double
         let temp_min: Double
         let temp_max: Double
@@ -39,7 +39,7 @@ public struct FiveDayForecast: Codable {
         }
     }
     
-    struct City: Codable {
+    struct City: Decodable {
         let name: String
         let country: String
         
