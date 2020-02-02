@@ -13,6 +13,7 @@ import Entities
 
 final class FindLocationRouter {
     let api: ForecastClient
+//    let forecasts: [FiveDayForecast]
     
     init(api apiClient: ForecastClient) {
         self.api = apiClient
@@ -22,7 +23,14 @@ final class FindLocationRouter {
 extension FindLocationRouter: FindLocationInteractorAction {
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
         api.perform(FiveDayForecast.getForecast(lat: coordinate.latitude, long: coordinate.longitude)) { (result) in
-            debugPrint(result)
+           
+            switch result  {
+            case .success(let fiveDayForecast):
+                dump(fiveDayForecast)
+            case .failure(_):
+                print("Error")
+            }
+
         }
     }
 }
