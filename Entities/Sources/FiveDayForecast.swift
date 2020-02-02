@@ -11,16 +11,10 @@ import Foundation
 public struct FiveDayForecast: Codable {
     
     // MARK: - Properties
-//    let city: String
-//    let name: String
-//    let country: String
-//    let list: String
-//    let date: Date
-//    let main: String
-    
     let city: City
     let list: [List]
     
+    // MARK: - Structs
     struct List: Codable {
         let date: Date
         let main: Main
@@ -60,24 +54,5 @@ public struct FiveDayForecast: Codable {
         case city
         case list
     }
-    
-    /*
-    // MARK: - Decoding
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let list = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .list)
-        date = try list.decode(Date.self, forKey: .date)
-        
-        let main = try list.nestedContainer(keyedBy: CodingKeys.self, forKey: .main)
-        temp = try main.decode(Double.self, forKey: .temp)
-        temp_min = try main.decode(Double.self, forKey: .temp_min)
-        temp_max = try main.decode(Double.self, forKey: .temp_max)
-        humidity = try main.decode(Int.self, forKey: .humidity)
-        
-        let city = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .city)
-        name = try city.decode(String.self, forKey: .name)
-        country = try city.decode(String.self, forKey: .country)
-    }*/
     
 }
