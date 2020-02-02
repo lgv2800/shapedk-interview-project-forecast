@@ -11,29 +11,54 @@ import Foundation
 public struct FiveDayForecast: Codable {
     
     // MARK: - Properties
-    public let city: String
-    public let name: String
-    public let country: String
-    public let list: String
-    public let date: Date
-    public let main: String
-    public let temp: Double
-    public let temp_min: Double
-    public let temp_max: Double
-    public let humidity: Int
+//    let city: String
+//    let name: String
+//    let country: String
+//    let list: String
+//    let date: Date
+//    let main: String
+    
+    let city: City
+    let list: [List]
+    
+    struct List: Codable {
+        let date: Date
+        let main: Main
+        
+        private enum CodingKeys: String, CodingKey {
+            case date = "dt"
+            case main
+        }
+    }
+    
+    struct Main: Codable {
+        let temp: Double
+        let temp_min: Double
+        let temp_max: Double
+        let humidity: Int
+        
+        private enum CodingKeys: String, CodingKey {
+            case temp
+            case temp_min
+            case temp_max
+            case humidity
+        }
+    }
+    
+    struct City: Codable {
+        let name: String
+        let country: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case name
+            case country
+        }
+    }
     
     // MARK: - Coding Keys
     enum CodingKeys: String, CodingKey {
-        case city = "city"
-        case name = "name"
-        case country = "country"
-        case list = "list"
-        case date = "dt"
-        case main = "main"
-        case temp = "temp"
-        case temp_min = "temp_min"
-        case temp_max = "temp_max"
-        case humidity = "humidity"
+        case city
+        case list
     }
     
     /*
