@@ -33,6 +33,7 @@ extension FindLocationInteractor: FindLocationViewControllerOutput {
     func viewIsReady() {
         // Request example to load the current weather with a query
         // Documentation for using the OpenWeatherAPI, is available at https://openweathermap.org/api
+        /*
         api.perform(CurrentWeather.getCurrent(for: "london,uk")) { (result) in
             print("""
             --- EXAMPLE
@@ -41,6 +42,7 @@ extension FindLocationInteractor: FindLocationViewControllerOutput {
             dump(result)
             print("--- END OF EXAMPLE ---")
         }
+        */
     }
     
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
