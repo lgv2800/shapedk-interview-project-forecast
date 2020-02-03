@@ -48,6 +48,10 @@ final class FindLocationViewController: UIViewController {
         debugPrint(tappedPointLocationCordiante)
         output.locationSelected(at: tappedPointLocationCordiante)
         
+        let viewController = FiveDayForecastViewController()
+        self.present(viewController, animated: true, completion: nil)
+        
+        
         /*
         print("""
         --- FIND LOCATION
